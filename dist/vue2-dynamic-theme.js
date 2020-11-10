@@ -332,7 +332,7 @@ function applyThemePaletteToElements(themePalette, componentScopeId) {
  */
 
 
-applyColorPaletteToElements = function applyColorPaletteToElements(styleType, colorPaletteKeyValue, componentScopeId) {
+function applyColorPaletteToElements(styleType, colorPaletteKeyValue, componentScopeId) {
   var lightElements = getColorElements(styleType, colorPaletteKeyValue[0], componentScopeId, 'light');
   var baseElements = getColorElements(styleType, colorPaletteKeyValue[0], componentScopeId, null);
   var darkElements = getColorElements(styleType, colorPaletteKeyValue[0], componentScopeId, 'dark');
@@ -379,7 +379,7 @@ applyColorPaletteToElements = function applyColorPaletteToElements(styleType, co
   } finally {
     _iterator3.f();
   }
-};
+}
 /**
  * returns collection of HTMLElements that have the corresponding colorKey, variant, and type
  * class = "type-color" for base or "type-color-variant" for light or dark variant
@@ -390,11 +390,11 @@ applyColorPaletteToElements = function applyColorPaletteToElements(styleType, co
  */
 
 
-getColorElements = function getColorElements(styleType, colorKey, componentScopeId, variant) {
+function getColorElements(styleType, colorKey, componentScopeId, variant) {
   var styleClassStr = getStyleClassStr(styleType, colorKey, variant);
   var matchingElements = document.querySelectorAll('[' + componentScopeId + '].' + styleClassStr);
   return matchingElements;
-};
+}
 /**
  * Returns the resulting dyanamic theme class string in the format: {{style}}-{{colorKey}}-{{variant}}
  * @param styleType
@@ -403,17 +403,17 @@ getColorElements = function getColorElements(styleType, colorKey, componentScope
  */
 
 
-getStyleClassStr = function getStyleClassStr(styleType, colorKey, variant) {
+function getStyleClassStr(styleType, colorKey, variant) {
   var base = styleType + '-' + colorKey;
   return variant ? base + ' - ' + variant : base;
-};
+}
 /**
  * Converts StyleType enum to corresponding css property
  * @param styleType
  */
 
 
-styleTypeToCssProperty = function styleTypeToCssProperty(styleType) {
+function styleTypeToCssProperty(styleType) {
   switch (styleType) {
     case StyleType.Text:
       return 'color';
@@ -427,14 +427,14 @@ styleTypeToCssProperty = function styleTypeToCssProperty(styleType) {
     default:
       return '';
   }
-};
+}
 /**
  * Generate a theme color palette with light and dark variants for each "core" color
  * @param theme
  */
 
 
-generateThemePaletteFromTheme = function generateThemePaletteFromTheme(theme) {
+function generateThemePaletteFromTheme(theme) {
   var themePalette = {};
   Object.entries(theme).forEach(function (colorKeyValue) {
     if (typeof colorKeyValue[1] == 'string') {
@@ -449,13 +449,13 @@ generateThemePaletteFromTheme = function generateThemePaletteFromTheme(theme) {
     }
   });
   return themePalette;
-};
+}
 /**
  * Log theme with corresponding colors to console
  */
 
 
-logThemePalette = function logThemePalette(themePalette) {
+function logThemePalette(themePalette) {
   if (themePalette) {
     console.groupCollapsed('Theme Palette:');
     console.log('Theme Object: ', themePalette);
@@ -475,14 +475,14 @@ logThemePalette = function logThemePalette(themePalette) {
   } else {
     console.warn('No theme palette has been generated yet.');
   }
-};
+}
 /**
  * Given an HSLA string value, returns an appropriate text color for it(black or white)
  * @param hslaStr
  */
 
 
-getAppropriateTextColor = function getAppropriateTextColor(hslaStr) {
+function getAppropriateTextColor(hslaStr) {
   var lightness = parseInt(hslaStr.split(',')[2].replace('%)', ''));
 
   if (lightness <= 49) {
@@ -490,29 +490,29 @@ getAppropriateTextColor = function getAppropriateTextColor(hslaStr) {
   } else {
     return '#000';
   }
-};
+}
 /**
  * Given an hsl color, generates a light variant of that color
  * @param hslaStr
  */
 
 
-generateLightColorVariant = function generateLightColorVariant(hslaStr) {
+function generateLightColorVariant(hslaStr) {
   var hslaColor = HslaColor.fromString(hslaStr);
   hslaColor.l = Math.round(clamp(hslaColor.l + hslaColor.l / 3, 0, 100));
   return hslaColor.toString();
-};
+}
 /**
  * Given an hsl color, generates a dark variant of that color
  * @param hslaStr
  */
 
 
-generateDarkColorVariant = function generateDarkColorVariant(hslaStr) {
+function generateDarkColorVariant(hslaStr) {
   var hslaColor = HslaColor.fromString(hslaStr);
   hslaColor.l = Math.round(clamp(hslaColor.l - hslaColor.l / 3, 0, 100));
   return hslaColor.toString();
-};
+}
 /**
  * Given a color string value, converts that value to a HSLA string value
  * if possible; if conversion is not possible error is logged
@@ -520,7 +520,7 @@ generateDarkColorVariant = function generateDarkColorVariant(hslaStr) {
  */
 
 
-colorStringToHslaString = function colorStringToHslaString(str) {
+function colorStringToHslaString(str) {
   /** Show error for unsupported color value */
   var strError = function strError() {
     console.error('The following color value cannot be used: ' + "'" + str + "'" + '. Color values for theme object must be correctly formatted rgb, hex, or hsl values only.');
@@ -563,7 +563,7 @@ colorStringToHslaString = function colorStringToHslaString(str) {
   } else {
     return strError();
   }
-};
+}
 /*************** Color Space Converters **********
  * credit to: https://css-tricks.com/converting-color-spaces-in-javascript/
  */
@@ -574,7 +574,7 @@ colorStringToHslaString = function colorStringToHslaString(str) {
  */
 
 
-hexToRgba = function hexToRgba(hex) {
+function hexToRgba(hex) {
   var rgbaColor = new RgbaColor(0, 0, 0, 1);
 
   if (hex.length == 4) {
@@ -588,14 +588,14 @@ hexToRgba = function hexToRgba(hex) {
   }
 
   return rgbaColor;
-};
+}
 /**
  * Converts RGB color value to HSLA color value
  * @param RgbaColor
  */
 
 
-rgbaToHsla = function rgbaToHsla(rgbaColor) {
+function rgbaToHsla(rgbaColor) {
   var r = rgbaColor.r / 255;
   var g = rgbaColor.g / 255;
   var b = rgbaColor.b / 255;
@@ -628,26 +628,26 @@ rgbaToHsla = function rgbaToHsla(rgbaColor) {
   l = +(l * 100).toFixed(1);
   s = +(s * 100).toFixed(1);
   return new HslaColor(h, s, l, a);
-};
+}
 /**
  * Converts RGB color value to HSLA string value
  * @param RgbaColor
  */
 
 
-rgbaToHslaStr = function rgbaToHslaStr(rgbaColor) {
+function rgbaToHslaStr(rgbaColor) {
   return rgbaToHsla(rgbaColor).toString();
-};
+}
 /**
  * Converts HEX color value to HSLA string value
  * @param hex
  */
 
 
-hexToHslaStr = function hexToHslaStr(hex) {
+function hexToHslaStr(hex) {
   var RgbaColor = hexToRgba(hex);
   return rgbaToHslaStr(RgbaColor);
-};
+}
 /**
  * clamps the value to the given range [min, max]
  * @param value
@@ -656,9 +656,9 @@ hexToHslaStr = function hexToHslaStr(hex) {
  */
 
 
-clamp = function clamp(value, min, max) {
+function clamp(value, min, max) {
   return Math.min(max, Math.max(min, value));
-};
+}
 
 /***/ })
 /******/ ]);

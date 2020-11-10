@@ -197,7 +197,7 @@ function applyThemePaletteToElements(themePalette, componentScopeId) {
  * @param elementType
  * @param colorPaletteKeyValue
  */
-applyColorPaletteToElements = (styleType, colorPaletteKeyValue, componentScopeId) => {
+function applyColorPaletteToElements(styleType, colorPaletteKeyValue, componentScopeId) {
   let lightElements = getColorElements(styleType, colorPaletteKeyValue[0], componentScopeId, 'light')
   let baseElements = getColorElements(styleType, colorPaletteKeyValue[0], componentScopeId, null)
   let darkElements = getColorElements(styleType, colorPaletteKeyValue[0], componentScopeId, 'dark')
@@ -223,7 +223,7 @@ applyColorPaletteToElements = (styleType, colorPaletteKeyValue, componentScopeId
  * @param variant
  * @param type
  */
-getColorElements = (styleType, colorKey, componentScopeId, variant) => {
+function getColorElements(styleType, colorKey, componentScopeId, variant) {
   let styleClassStr = getStyleClassStr(styleType, colorKey, variant)
   let matchingElements = document.querySelectorAll(
     '[' + componentScopeId + '].' + styleClassStr
@@ -237,7 +237,7 @@ getColorElements = (styleType, colorKey, componentScopeId, variant) => {
  * @param colorKey
  * @param variant
  */
-getStyleClassStr = (styleType, colorKey, variant) => {
+function getStyleClassStr(styleType, colorKey, variant) {
   let base = styleType + '-' + colorKey
   return variant ? base + ' - ' + variant : base
 }
@@ -246,7 +246,7 @@ getStyleClassStr = (styleType, colorKey, variant) => {
  * Converts StyleType enum to corresponding css property
  * @param styleType
  */
-styleTypeToCssProperty = (styleType) => {
+function styleTypeToCssProperty(styleType) {
   switch (styleType) {
     case StyleType.Text:
       return 'color'
@@ -263,7 +263,7 @@ styleTypeToCssProperty = (styleType) => {
  * Generate a theme color palette with light and dark variants for each "core" color
  * @param theme
  */
-generateThemePaletteFromTheme = (theme) => {
+function generateThemePaletteFromTheme(theme) {
   let themePalette = {} 
   Object.entries(theme).forEach(colorKeyValue => {
     if (typeof colorKeyValue[1] == 'string') {
@@ -292,7 +292,7 @@ generateThemePaletteFromTheme = (theme) => {
 /**
  * Log theme with corresponding colors to console
  */
-logThemePalette = (themePalette) => {
+function logThemePalette(themePalette) {
   if (themePalette) {
     console.groupCollapsed('Theme Palette:')
     console.log('Theme Object: ', themePalette)
@@ -325,7 +325,7 @@ logThemePalette = (themePalette) => {
  * Given an HSLA string value, returns an appropriate text color for it(black or white)
  * @param hslaStr
  */
-getAppropriateTextColor = (hslaStr) => {
+function getAppropriateTextColor(hslaStr) {
   let lightness = parseInt(hslaStr.split(',')[2].replace('%)', ''))
   if (lightness <= 49) {
     return '#fff'
@@ -338,7 +338,7 @@ getAppropriateTextColor = (hslaStr) => {
  * Given an hsl color, generates a light variant of that color
  * @param hslaStr
  */
-generateLightColorVariant = (hslaStr) => {
+function generateLightColorVariant(hslaStr) {
   let hslaColor = HslaColor.fromString(hslaStr)
   hslaColor.l = Math.round(clamp(hslaColor.l + hslaColor.l / 3, 0, 100))
   return hslaColor.toString()
@@ -348,7 +348,7 @@ generateLightColorVariant = (hslaStr) => {
  * Given an hsl color, generates a dark variant of that color
  * @param hslaStr
  */
-generateDarkColorVariant = (hslaStr) => {
+function generateDarkColorVariant(hslaStr) {
   let hslaColor = HslaColor.fromString(hslaStr)
   hslaColor.l = Math.round(clamp(hslaColor.l - hslaColor.l / 3, 0, 100))
   return hslaColor.toString()
@@ -359,7 +359,7 @@ generateDarkColorVariant = (hslaStr) => {
  * if possible; if conversion is not possible error is logged
  * @param str
  */
-colorStringToHslaString = (str) => {
+function colorStringToHslaString(str) {
   /** Show error for unsupported color value */
   let strError = () => {
     console.error(
@@ -421,7 +421,7 @@ colorStringToHslaString = (str) => {
  * Converts HEX color value to RGB color value
  * @param hex
  */
-hexToRgba = (hex) => {
+function hexToRgba(hex) {
   let rgbaColor = new RgbaColor(0, 0, 0, 1)
   if (hex.length == 4) {
     rgbaColor.r = +('0x' + hex[1] + hex[1])
@@ -439,7 +439,7 @@ hexToRgba = (hex) => {
  * Converts RGB color value to HSLA color value
  * @param RgbaColor
  */
-rgbaToHsla = (rgbaColor) => {
+function rgbaToHsla(rgbaColor) {
   let r = rgbaColor.r / 255
   let g = rgbaColor.g / 255
   let b = rgbaColor.b / 255
@@ -481,7 +481,7 @@ rgbaToHsla = (rgbaColor) => {
  * Converts RGB color value to HSLA string value
  * @param RgbaColor
  */
-rgbaToHslaStr = (rgbaColor) => {
+function rgbaToHslaStr(rgbaColor) {
   return rgbaToHsla(rgbaColor).toString()
 }
 
@@ -489,7 +489,7 @@ rgbaToHslaStr = (rgbaColor) => {
  * Converts HEX color value to HSLA string value
  * @param hex
  */
-hexToHslaStr = (hex) => {
+function hexToHslaStr(hex) {
   let RgbaColor = hexToRgba(hex)
   return rgbaToHslaStr(RgbaColor)
 }
@@ -500,6 +500,6 @@ hexToHslaStr = (hex) => {
  * @param min
  * @param max
  */
-clamp = (value, min, max) => {
+function clamp(value, min, max) {
   return Math.min(max, Math.max(min, value))
 }
