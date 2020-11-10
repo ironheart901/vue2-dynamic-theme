@@ -36,7 +36,7 @@ Vue.use(Vue2DynamicTheme {
 
 ## Usage
 
-The plugin provides the usage of 3 unique theming class templates, prefixed with `text-`, `bg-`, and `border-` (corresponding with the CSS properties of `color`, `background-color`, and `border-color`, respectively), and suffixed with your defined theme colors (`primary` and `secondary` in the install example) and an optional `-light` or `-dark` variant (no variant results in the base color defined in the theme object). 
+The plugin provides the usage of 3 unique theming class templates, prefixed with `text-`, `bg-`, and `border-` (corresponding with the CSS properties of `color`, `background-color`, and `border-color`, respectively), and suffixed with your defined theme colors (`primary` and `secondary` in the NPM install example) and an optional `-light` or `-dark` variant (no variant results in the base color defined in the theme object). 
 
 Example classes would be `bg-primary`, `text-secondary-light`, `border-primary-dark`, etc.
 
