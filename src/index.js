@@ -59,10 +59,6 @@ var Vue2DynamicTheme = {
       }
     })
   }
-  // mixin: {
-  //   methods: {
-  //   }
-  // }
 }
 
 export default Vue2DynamicTheme;
