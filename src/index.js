@@ -239,7 +239,7 @@ function getColorElements(styleType, colorKey, componentScopeId, variant) {
  */
 function getStyleClassStr(styleType, colorKey, variant) {
   let base = styleType + '-' + colorKey
-  return variant ? base + ' - ' + variant : base
+  return variant ? base + '-' + variant : base
 }
 
 /**
