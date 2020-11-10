@@ -55,8 +55,6 @@ A theme can be defined when the plugin is installed (as demonstrated in the NPM 
 
 The theme object must be single depth, but you can define as many colors as desired. The passed color values can be HEX, RGBA, RGBA, HSL, or HSLA (they are all converted to HSLA). 
 
-By default, the resulting theme palette is logged to the console. This can be disabled by setting the `autoLogThemePalette` parameter of the install options to `false`.
-
 Example theme pattern below:
 
 ```js
@@ -68,6 +66,9 @@ theme: {
   ....
 }
 ```
+
+By default, the resulting theme palette is logged to the console. This can be disabled by setting the `autoLogThemePalette` parameter of the install options to `false`.
+
 
 ## License
 
