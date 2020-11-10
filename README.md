@@ -1,6 +1,6 @@
 # vue2-dynamic-theme
 
-A dynamic theme plugin for Vue2 projects that allows for runtime theming.
+A dynamic theme plugin for Vue2 projects that allows for runtime color theming.
 
 ## Installation
 
