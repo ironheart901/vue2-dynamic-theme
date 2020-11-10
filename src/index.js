@@ -180,7 +180,7 @@ class RgbaColor {
  * @param themePalette
  * @param componentScopeId
  */
-applyThemePaletteToElements = (themePalette, componentScopeId) => {
+function applyThemePaletteToElements(themePalette, componentScopeId) {
   /** scopeId is needed to avoid redundant processing of DOM elements */
   if (componentScopeId) {
     Object.entries(themePalette).forEach(colorPaletteKeyValue => {
