@@ -40,9 +40,9 @@ This plugin provides dynamic theming through uniquely constructed CSS class temp
 
 These CSS classes are constructed using the following rules:
 
-- `text-`, `bg-`, and `border-` prefixes (corresponding with the CSS properties of `color`, `background-color`, and `border-color`, respectively) 
+- `text-`, `bg-`, and `border-` prefixes (corresponding with the CSS properties `color`, `background-color`, and `border-color`, respectively) 
 
-- defined theme color suffixes (`primary` and `secondary` in the NPM install example) with an optional `-light` or `-dark` variant
+- user defined theme color suffixes (`primary` and `secondary` in the NPM install example) with an optional `-light` or `-dark` variant
 
 Example CSS classes would be `bg-primary`, `text-secondary-light`, `border-primary-dark`, etc.
 
@@ -51,19 +51,19 @@ Example CSS classes would be `bg-primary`, `text-secondary-light`, `border-prima
 
 ## Theme Configuration
 
-A theme can be defined when the plugin is installed (as demonstrated in the NPM install section) or dynamically set/changed using the instance method `$generateThemePaletteFromTheme({themeObject})`. 
+A theme can be defined when the plugin is installed (as demonstrated in the NPM install section) or dynamically set/changed using the Vue instance method `this.$generateThemePaletteFromTheme({themeObject})`. 
 
 The theme object must be single depth, but you can define as many colors as desired. The passed color values can be HEX, RGBA, RGBA, HSL, or HSLA (they are all converted to HSLA). 
 
-Example theme pattern below:
+Example theme pattern below (theme color names can be anything):
 
 ```js
 theme: {
-  "color-one-name" : "{color-one-value}",
-  "color-two-name" : "{color-two-value}",
-  "color-three-name" : "{color-three-value}",
+  "primary" : "hsl(120, 100%, 50%)",
+  "secondary" : "#fcba03",
+  "color-three-name" : "rgb(252, 57, 3)",
   "color-four-name" : "{color-four-value}",
-  ....
+  etc..
 }
 ```
 
