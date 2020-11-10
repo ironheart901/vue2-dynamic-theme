@@ -52,9 +52,9 @@ Example CSS classes would be `bg-primary`, `text-secondary-light`, `border-prima
 
 Any of the color values can be accessed programmatically via the `this.$themePalette` instance object. 
 
-Following the above example with a primary and secondary color the following colors could be accessed: `this.$themePalette.primary.base`, `this.$themePalette.primary.light`, `this.$themePalette.primary.dark`, `this.$themePalette.secondary.base`, `this.$themePalette.secondary.light`, and `this.$themePalette.secondary.dark`,
+Following the above example with a primary and secondary color the following colors could be accessed: `this.$themePalette.primary.base`, `this.$themePalette.primary.light`, `this.$themePalette.primary.dark`, `this.$themePalette.secondary.base`, `this.$themePalette.secondary.light`, and `this.$themePalette.secondary.dark`
 
-* Note - the base color variant is accessed with the `.base` identifier when programmatically accessing the theme palette.
+* Note - the base color variant is accessed with the `.base` property when programmatically accessing the theme palette.
 
 
 ## Theme Configuration
