@@ -405,7 +405,7 @@ function getColorElements(styleType, colorKey, componentScopeId, variant) {
 
 function getStyleClassStr(styleType, colorKey, variant) {
   var base = styleType + '-' + colorKey;
-  return variant ? base + ' - ' + variant : base;
+  return variant ? base + '-' + variant : base;
 }
 /**
  * Converts StyleType enum to corresponding css property
