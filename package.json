@@ -3,7 +3,7 @@
   "description": "A dynamic theme plugin for Vue2 projects that allows for runtime theming.",
   "author": "ironheart901",
   "license": "MIT",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "dist/vue2-dynamic-theme.js",
   "types": "types/index.d.ts",
   "scripts": {
