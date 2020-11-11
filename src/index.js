@@ -323,11 +323,7 @@ function logThemePalette(themePalette) {
  */
 function getAppropriateTextColor(hslaStr) {
   let lightness = parseInt(hslaStr.split(',')[2].replace('%)', ''))
-  if (lightness <= 49) {
-    return '#fff'
-  } else {
-    return '#000'
-  }
+  return lightness <= 49 ? '#fff' : '#000'
 }
 
 /**
