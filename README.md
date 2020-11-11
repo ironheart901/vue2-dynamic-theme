@@ -54,7 +54,7 @@ Example CSS classes would be `bg-primary`, `text-secondary-light`, `border-prima
 
 | Property / Method  | Description |
 | ------------- | ------------- |
-| this.$themePalette  | Theme Palette object that can be used to programmatically (example below)  |
+| this.$themePalette  | Theme palette object that can be used programmatically (example below)  |
 | this.$generateThemePaletteFromTheme({themeObject})  | Method used to set the configured theme at runtime  |
 | this.$logThemePalette()  | Method to log the current configured theme palette to the console  |
 
