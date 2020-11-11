@@ -42,7 +42,7 @@ These CSS classes are constructed using the following rules:
 
 - `text-`, `bg-`, and `border-` prefixes (corresponding with the CSS properties `color`, `background-color`, and `border-color`, respectively) 
 
-- user defined theme color suffixes (`primary` and `secondary` in the NPM install example) with an optional `-light` or `-dark` variant
+- user defined theme color suffixes (`primary` and `secondary` in the NPM install example above) with an optional `-light` or `-dark` variant
 
 Example CSS classes would be `bg-primary`, `text-secondary-light`, `border-primary-dark`, etc.
 
@@ -50,9 +50,24 @@ Example CSS classes would be `bg-primary`, `text-secondary-light`, `border-prima
 
 ## Programmatic Usage
 
-Any of the color values can be accessed programmatically via the `this.$themePalette` instance object. 
+### Instance Properties / Methods
 
-Following the above example with a primary and secondary color the following colors could be accessed: `this.$themePalette.primary.base`, `this.$themePalette.primary.light`, `this.$themePalette.primary.dark`, `this.$themePalette.secondary.base`, `this.$themePalette.secondary.light`, and `this.$themePalette.secondary.dark`
+| Property / Method  | Description |
+| ------------- | ------------- |
+| this.$themePalette  | Theme Palette object that can be used to programmatically (example below)  |
+| this.$generateThemePaletteFromTheme({themeObject})  | Method used to set the configured theme at runtime  |
+| this.$logThemePalette()  | Method to log the current configured theme palette to the console  |
+
+
+### this.$themePalette example:
+
+Following the above example with a primary and secondary color defined in the theme object, the following colors would be accessible via the theme palette instance object: 
+```
+  this.$themePalette.primary.base, this.$themePalette.primary.light, this.$themePalette.primary.dark, 
+  this.$themePalette.secondary.base, this.$themePalette.secondary.light, and this.$themePalette.secondary.dark
+```
+ 
+* This theme palette object is dynamic and changes depending on the theme configuration you use.
 
 * Note - the base color variant is accessed with the `.base` property when programmatically accessing the theme palette.
 
@@ -61,7 +76,7 @@ Following the above example with a primary and secondary color the following col
 
 A theme can be defined when the plugin is installed (as demonstrated in the NPM install section) or dynamically set/changed using the provided Vue instance method: `this.$generateThemePaletteFromTheme({themeObject})`. 
 
-The theme object must be single depth, but you can define as many colors as desired. The passed color values can be HEX, RGBA, RGBA, HSL, or HSLA (they are all converted to HSLA). 
+The theme object must be single depth, but you can define as many colors as desired. The passed color values can be HEX, RGB, RGBA, HSL, or HSLA (they are all converted to HSLA). 
 
 Example theme pattern below (theme color names can be anything):
 
