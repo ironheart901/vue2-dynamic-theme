@@ -27,8 +27,8 @@ import Vue2DynamicTheme from 'vue2-dynamic-theme'
 
 Vue.use(Vue2DynamicTheme {
   theme: {
-    "primary": "#fcba03",
-    "secondary": "#039dfc"
+    primary: "#fcba03",
+    secondary: "#039dfc"
   },
   autoLogThemePalette: true // set to true by default
 })
@@ -82,10 +82,10 @@ Example theme pattern below (theme color names can be anything):
 
 ```js
 theme: {
-  "primary" : "hsl(120, 100%, 50%)",
-  "secondary" : "#fcba03",
-  "color-three-name" : "rgb(252, 57, 3)",
-  "color-four-name" : "{color-four-value}",
+  primary: "hsl(120, 100%, 50%)",
+  secondary: "#fcba03",
+  colorThreeName: "rgb(252, 57, 3)",
+  colorFourName: "{color-four-value}",
   etc..
 }
 ```
