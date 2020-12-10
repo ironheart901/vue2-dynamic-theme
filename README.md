@@ -25,7 +25,7 @@ Install via `Vue.use()`:
 import Vue from 'vue'
 import Vue2DynamicTheme from 'vue2-dynamic-theme'
 
-Vue.use(Vue2DynamicTheme {
+Vue.use(Vue2DynamicTheme, {
   theme: {
     primary: "#fcba03",
     secondary: "#039dfc"
